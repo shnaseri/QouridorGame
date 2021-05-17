@@ -1,0 +1,37 @@
+class Wall
+	startX
+	startY
+	orientation
+	static isValid(person, wall): (valid, jump)
+
+walls = []
+-------------------------------
+class Block
+	x
+	y
+	value
+	
+
+blocks []
+
+Class Person
+	block
+	color
+	action
+		wallAdd(
+		move
+	wallsRemain
+	moveValid
+persons []
+
+input() - define
+output()
+
+wall H 1.1
+move L
+
+0 0 0
+  - -
+g|r|0
+
+0 0 0
