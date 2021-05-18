@@ -3,14 +3,15 @@ class Wall
 	startY
 	orientation
 	static isValid(person, wall): (valid, jump)
-
+	static hasWall(wall)
 walls = []
 -------------------------------
 class Block
 	x
 	y
 	value
-	
+	getBlockNumber
+	getBlockList
 
 blocks []
 

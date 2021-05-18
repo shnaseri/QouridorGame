@@ -1,2 +1,2 @@
 class Wall:
-    pass
+    walls = []
