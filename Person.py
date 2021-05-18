@@ -19,37 +19,37 @@ class Person:
 
     def wallOk(self, jahat, jump):
         if jahat == 'l':
-            if Wall.hasWall(Wall(self.x, self.y - 1, 'V')):
+            if Wall.hasWall(Wall(self.block.x, self.block.y - 1, 'V')):
                 return False
             if jump:
-                if Wall.hasWall(Wall(self.x, self.y - 2, 'V')):
+                if Wall.hasWall(Wall(self.block.x, self.block.y - 2, 'V')):
                     return False
         elif jahat == 'r':
-            if Wall.hasWall(Wall(self.x, self.y, 'V')):
+            if Wall.hasWall(Wall(self.block.x, self.block.y, 'V')):
                 return False
             if jump:
-                if Wall.hasWall(Wall(self.x, self.y + 1, 'V')):
+                if Wall.hasWall(Wall(self.block.x, self.block.y + 1, 'V')):
                     return False
         elif jahat == 'u':
-            if Wall.hasWall(Wall(self.x - 1, self.y, 'H')):
+            if Wall.hasWall(Wall(self.block.x - 1, self.block.y, 'H')):
                 return False
             if jump:
-                if Wall.hasWall(Wall(self.x - 2, self.y, 'H')):
+                if Wall.hasWall(Wall(self.block.x - 2, self.block.y, 'H')):
                     return False
         elif jahat == 'd':
-            if Wall.hasWall(Wall(self.x, self.y, 'H')):
+            if Wall.hasWall(Wall(self.block.x, self.block.y, 'H')):
                 return False
             if jump:
-                if Wall.hasWall(Wall(self.x + 9, self.y, 'H')):
+                if Wall.hasWall(Wall(self.block.x + 9, self.block.y, 'H')):
                     return False
         return True
 
     def moveValid(self, jahat, blocks):
-        blockList = self.block.getBlocks()
+        blockList = self.block.getBlocks(jahat)
         jump = False
         if len(blockList) == 0:
             return (False)
-        if len(blockList == 1):
+        if len(blockList) == 1:
             if blockList[0].value != None:
                 return (False)
             if not self.wallOk(jahat, False):
