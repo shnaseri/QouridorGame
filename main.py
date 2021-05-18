@@ -85,7 +85,7 @@ while True:
             if selectmenu == 1:
                 function = input('Enter your func (\'startx starty H/V \') : ').split()
                 walltemp = Wall(function[0] , function[1] , function[2])
-                if Persons[index].AddWall(wall):
+                if Persons[index].AddWall(walltemp):
                     turn *= -1
                     print('Add wall is successful')
                 else:
