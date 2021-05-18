@@ -21,11 +21,9 @@ def initmatrix():
                 Block.blocks.append(blocktemp)
 
 
-
-
 def print_board():
     for i in range(19):
-        print('-',end='')
+        print('-', end='')
     print()
     wall_h = [wall for wall in Wall.walls if wall.orientation == 'H']
     wall_v = [wall for wall in Wall.walls if wall.orientation == 'V']
@@ -55,8 +53,8 @@ def print_board():
                 if j % 2 == 0:
                     wall = [wall for wall in wall_h if wall.startX ==
                             i//2 and wall.startY == j//2]
-                    if len(wall)==0:
-                        print(' ',end = '')
+                    if len(wall) == 0:
+                        print(' ', end='')
                     else:
                         print('-', end='')
                 else:
@@ -64,7 +62,7 @@ def print_board():
         print('|')
 
     for i in range(19):
-        print('-',end='')
+        print('-', end='')
 
 
 def menu():
@@ -77,7 +75,6 @@ def menu():
 
 turn = -1
 initmatrix()
-print(Block.blocks)
 while True:
     print("""
     1 . startgame
