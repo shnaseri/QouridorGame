@@ -27,9 +27,11 @@ def checkWin():
     elif Persons[1].block.x == 0:
         print('Red is Winner.')
     return
+
+
 def print_board():
     for i in range(19):
-        print('-',end='')
+        print('-', end='')
     print()
     wall_h = [wall for wall in Wall.walls if wall.orientation == 'H']
     wall_v = [wall for wall in Wall.walls if wall.orientation == 'V']
@@ -59,8 +61,8 @@ def print_board():
                 if j % 2 == 0:
                     wall = [wall for wall in wall_h if wall.startX ==
                             i//2 and wall.startY == j//2]
-                    if len(wall)==0:
-                        print(' ',end = '')
+                    if len(wall) == 0:
+                        print(' ', end='')
                     else:
                         print('-', end='')
                 else:
@@ -68,7 +70,7 @@ def print_board():
         print('|')
 
     for i in range(19):
-        print('-',end='')
+        print('-', end='')
 
 
 def menu():
@@ -81,7 +83,6 @@ def menu():
 
 turn = -1
 initmatrix()
-print(Block.blocks)
 while True:
     print("""
     1 . startgame
@@ -105,7 +106,8 @@ while True:
             if selectmenu == 1:
                 function = input(
                     'Enter your func (\'startx starty H/V \') : ').split()
-                walltemp = Wall(int(function[0]), int(function[1]), function[2])
+                walltemp = Wall(int(function[0]), int(
+                    function[1]), function[2])
                 if Persons[index].AddWall(walltemp):
                     turn *= -1
                     print('Add wall is successful')

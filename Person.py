@@ -12,6 +12,10 @@ class Person:
     def AddWall(self, wall):
         if Wall.isValid(self, wall):
             Wall.walls.append(wall)
+            if wall.orientation == 'H':
+                Wall.walls.append(Wall(wall.startX, wall.startY + 1, 'H'))
+            else:
+                Wall.walls.append(Wall(wall.startX + 1, wall.startY, 'V'))
             self.wallsRemain -= 10
             return True
         else:
