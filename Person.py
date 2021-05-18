@@ -71,39 +71,44 @@ class Person:
             jump = valid[1]
             if jahat == 'l':
                 if not jump:
+                    blocks[self.block.getBlockNumber()].value = None
                     self.block.y -= 1
-                    blocks[self.block.getBlockNumber()].value = None
-                    blocks[self.block.getBlockNumber() - 1].value = self.color
+                    blocks[self.block.getBlockNumber() - 1].value = self
                 else:
-                    self.block.y -= 2
                     blocks[self.block.getBlockNumber()].value = None
-                    blocks[self.block.getBlockNumber() - 2].value = self.color
+                    self.block.y -= 2
+                    blocks[self.block.getBlockNumber() - 2].value = self
             elif jahat == 'r':
                 if not jump:
+                    blocks[self.block.getBlockNumber()].value = None
                     self.block.y += 1
-                    blocks[self.block.getBlockNumber()].value = None
-                    blocks[self.block.getBlockNumber() + 1].value = self.color
+                    blocks[self.block.getBlockNumber() + 1].value = self
                 else:
-                    self.block.y += 2
                     blocks[self.block.getBlockNumber()].value = None
-                    blocks[self.block.getBlockNumber() + 2].value = self.color
+                    self.block.y += 2
+
+                    blocks[self.block.getBlockNumber() + 2].value = self
             if jahat == 'u':
                 if not jump:
+                    blocks[self.block.getBlockNumber()].value = None
                     self.block.x -= 1
-                    blocks[self.block.getBlockNumber()].value = None
-                    blocks[self.block.getBlockNumber() - 9].value = self.color
+
+                    blocks[self.block.getBlockNumber() - 9].value = self
                 else:
-                    self.block.x -= 2
                     blocks[self.block.getBlockNumber()].value = None
-                    blocks[self.block.getBlockNumber() - 18].value = self.color
+                    self.block.x -= 2
+
+                    blocks[self.block.getBlockNumber() - 18].value = self
             elif jahat == 'd':
                 if not jump:
+                    blocks[self.block.getBlockNumber()].value = None
                     self.block.x += 1
-                    blocks[self.block.getBlockNumber()].value = None
-                    blocks[self.block.getBlockNumber() + 9].value = self.color
+
+                    blocks[self.block.getBlockNumber() + 9].value = self
                 else:
-                    self.block.x += 2
                     blocks[self.block.getBlockNumber()].value = None
-                    blocks[self.block.getBlockNumber() + 18].value = self.color
+                    self.block.x += 2
+
+                    blocks[self.block.getBlockNumber() + 18].value = self
             return True
         return False

@@ -5,7 +5,7 @@ class Block:
     value = None
 
     def getBlockNumber(self):
-        return (10 * self.x) + self.y
+        return (9 * self.x) + self.y
 
     def __init__(self, x, y, person=None):
         self.x = x

@@ -6,14 +6,14 @@ Persons = []
 
 
 def initmatrix():
-    for i in range(10):
-        for j in range(10):
+    for i in range(9):
+        for j in range(9):
             blocktemp = Block(i, j)
-            if i == 0 and j == 5:
+            if i == 0 and j == 4:
                 blocktemp.value = Person(blocktemp, 'G')
                 Block.blocks.append(blocktemp)
                 Persons.append(Person(blocktemp, 'G'))
-            elif i == 9 and j == 5:
+            elif i == 8 and j == 4:
                 blocktemp.value = Person(blocktemp, 'R')
                 Block.blocks.append(blocktemp)
                 Persons.append(Person(blocktemp, 'R'))
@@ -21,11 +21,12 @@ def initmatrix():
                 Block.blocks.append(blocktemp)
 
 
-initmatrix()
 
 
 def print_board():
-    print(*(['_'] * 17))
+    for i in range(19):
+        print('-',end='')
+    print()
     wall_h = [wall for wall in Wall.walls if wall.orientation == 'H']
     wall_v = [wall for wall in Wall.walls if wall.orientation == 'V']
 
@@ -35,7 +36,7 @@ def print_board():
             for j in range(17):
                 if j % 2 == 0:
                     block = [
-                        block for block in Block.blocks if block.x == i and block.y == j]
+                        block for block in Block.blocks if block.x == i//2 and block.y == j//2]
                     if len(block) != 0:
                         block = block[0]
                         if block.value is None:
@@ -53,13 +54,17 @@ def print_board():
             for j in range(17):
                 if j % 2 == 0:
                     wall = [wall for wall in wall_h if wall.startX ==
-                            i and wall.startY == j]
-                    print('-', end='')
+                            i//2 and wall.startY == j//2]
+                    if len(wall)==0:
+                        print(' ',end = '')
+                    else:
+                        print('-', end='')
                 else:
                     print(' ', end='')
         print('|')
 
-    print(*(['_'] * 17))
+    for i in range(19):
+        print('-',end='')
 
 
 def menu():
@@ -71,7 +76,8 @@ def menu():
 
 
 turn = -1
-
+initmatrix()
+print(Block.blocks)
 while True:
     print("""
     1 . startgame
