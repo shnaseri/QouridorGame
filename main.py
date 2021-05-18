@@ -49,7 +49,7 @@ def print_board():
                             print(block.value.color, end='')
                 else:
                     wall = [wall for wall in wall_v if wall.startX ==
-                            i and wall.startY == j]
+                            i//2 and wall.startY == j//2]
                     if len(wall) != 0:
                         print('|', end='')
                     else:
