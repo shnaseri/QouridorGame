@@ -14,9 +14,17 @@ class Wall:
             if wall.y in [i.y for i in Wall.walls] or wall.y + 1 in [i.y for i in Wall.walls]:
                 return True
         return False
-
+    
     def isValid(person, wall):
         if Wall.hasWall(wall):
+            return False
+        elif person.wallsRemain < 1:
+            return False
+        elif wall.orientation == 'H' and wall.startX > n - 1 :
+            return False
+        elif wall.orientation == 'V' and wall.startY > n - 1 :
+            return False
+        elif wall.startY < 0 or wall.startX < 0:
             return False
         else:
             return True

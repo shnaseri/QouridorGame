@@ -12,7 +12,7 @@ class Person:
     def AddWall(self, wall):
         if Wall.isValid(self, wall):
             Wall.walls.append(wall)
-            self.wallsRemain -= 10
+            self.wallsRemain -= 1
         else:
             return False
 
