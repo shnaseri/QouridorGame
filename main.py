@@ -33,7 +33,7 @@ def print_board():
                 if j % 2 == 0:
                     block = [block for block in Block.blocks if block.x == i and block.y == j][0]
                     if block.value is None:
-                        print(0,end=)
+                        print(0,end='')
                     else:
                         print(block.value.color,end='')
                 else:

@@ -4,7 +4,7 @@ from Wall import Wall
 class Person:
     persons = []
 
-    def ___init__(self, block, color):
+    def __init__(self, block, color):
         self.block = block
         self.color = color
         self.wallsRemain = 10
